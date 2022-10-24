@@ -15,7 +15,7 @@ pip3 install tk
 ```
 
 ## installation
-first copy this line into your .bashrc located in your home directory:
+first copy this line into your .bashrc located in your home directory at the line before ``` unset rc ```:
 ```
 neofetch='neofetch --ascii /home/path_to_directory_of_app/new_logo.txt'
 ```
