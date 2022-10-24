@@ -19,3 +19,5 @@ first copy this line into your .bashrc located in your home directory:
 ```
 neofetch='neofetch --ascii /home/path_to_directory_of_app/new_logo.txt'
 ```
+
+for now you also need to replace the ``` "file_0": "example.jpg" ``` to one of your images, the other ones will be added automaticlly.
