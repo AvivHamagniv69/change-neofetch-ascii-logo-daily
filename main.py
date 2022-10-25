@@ -12,13 +12,16 @@ def change_values_of_files():
     all_files_in_folder = os.listdir(current_directory)
     print(all_files_in_folder)
 
-    num = int(data['files'][2]['num_to_use_file'])
-    counter = num
+    counter = int(data['date_and_time'][1]['num_to_use_file'])
     if_updated = False
+
+    breakpoint()
     for f in all_files_in_folder:
+        print(f)
         if ".jpg" in f:
             to_continue_loop = False
             new_counter = 0
+            
             for i in data['files'][0]:
                 if f in data['files'][0]["file_"+str(new_counter)]:
                     to_continue_loop = True
@@ -32,14 +35,13 @@ def change_values_of_files():
             append_to_json = {"file_"+str(counter+1):f}
             counter = counter + 1
             print(append_to_json)
-            data.update(append_to_json)
+            data['files'][0].update(append_to_json)
 
-    try:
-        if if_updated == True:
-            with open('files.json', 'w') as fpn:
-                data['files'][0].update(append_to_json)
-                json.dump(data, fp = fpn, indent=2)
-    except:
+    if if_updated == True:
+        with open('files.json', 'w') as fpn:
+            data['files'][0].update(append_to_json)
+            json.dump(data, fp = fpn, indent=2)
+    else:
         print("no files")
 
 change_values_of_files()
