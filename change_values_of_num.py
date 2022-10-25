@@ -8,20 +8,20 @@ def change_values_of_num():
     data = json.load(json_file)
 
     today = date.today()
-    if today.day != data['files'][1]['date']:
-        num = int(data['files'][2]['num_to_use_file'])
+    if today.day != data['date_and_time'][0]['date']:
+        num = int(data['date_and_time'][1]['num_to_use_file'])
         length_of_files = len(data['files'][0])
         print(length_of_files)
         print(num)
 
         with open('files.json', 'w') as fpn:
-            data['files'][1]['date'] = today.day
+            data['date_and_time'][0]['date'] = today.day
 
             if length_of_files <= num+1:
-                data['files'][2]['num_to_use_file'] = 0
+                data['date_and_time'][1]['num_to_use_file'] = 0
 
             else:
-                data['files'][2]['num_to_use_file'] = num+1
+                data['date_and_time'][1]['num_to_use_file'] = num+1
             
             json.dump(data, fp = fpn, indent=2)
 
