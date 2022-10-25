@@ -12,7 +12,7 @@ def create_logo():
     json_file = open('files.json')
     data = json.load(json_file)
     print(data['files'])
-    num = data['files'][2]['num_to_use_file']
+    num = data['date_and_time'][1]['num_to_use_file']
     print(num)
     element = 'file_'+str(num)
     file_to_use = data['files'][0][element]
