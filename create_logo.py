@@ -8,7 +8,7 @@ import sys
 def create_logo():
     current_directory = os.path.dirname(os.path.realpath(__file__))
 
-    json_file = open('files.json')
+    json_file = open(current_directory+'/files.json')
     data = json.load(json_file)
     num = data['date_and_time'][1]['num_to_use_file']
     element = 'file_'+str(num)
