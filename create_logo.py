@@ -20,7 +20,7 @@ def create_logo():
     width1, height1 = im.size
     ratio = width1/height1
     ratio = round(ratio)
-    size = sys.argv[1]
+    size = int(sys.argv[1])
 
     num_to_decide_ratio = 4
 
