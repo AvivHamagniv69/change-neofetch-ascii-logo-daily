@@ -6,16 +6,12 @@ import json
 
 def create_logo():
     current_directory = os.path.dirname(os.path.realpath(__file__))
-    print(current_directory)
 
     json_file = open('files.json')
     data = json.load(json_file)
-    print(data['files'])
     num = data['date_and_time'][1]['num_to_use_file']
-    print(num)
     element = 'file_'+str(num)
     file_to_use = data['files'][0][element]
-    print(file_to_use)
 
     file_path = current_directory+"/"+file_to_use
     im = Image.open(file_path)
@@ -23,7 +19,6 @@ def create_logo():
     width1, height1 = im.size
     ratio = width1/height1
     ratio = round(ratio)
-    print(ratio)
     size = 25
 
     num_to_decide_ratio = 4
@@ -34,10 +29,7 @@ def create_logo():
     if ratio/2 < 1:
         num_to_decide_ratio = num_to_decide_ratio/(ratio*2)
 
-    print("num to decide ratio = " , num_to_decide_ratio)
-
     new_im = im.resize((round(size*num_to_decide_ratio), round(size)))
-    print(new_im.size)
 
     pix = new_im.load()
 
@@ -45,7 +37,6 @@ def create_logo():
     ascii_chars = ".,:;+*?%#@S"
     ascii_chars = list(ascii_chars)
     len_ascii = len(ascii_chars)
-    print(ascii_chars)
     width, height = new_im.size
     num_to_multiply = 1
 
