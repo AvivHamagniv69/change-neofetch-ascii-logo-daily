@@ -4,7 +4,9 @@ import json
 from datetime import date
 
 def change_values_of_num():
-    json_file = open('files.json')
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+
+    json_file = open(current_directory+'/files.json')
     data = json.load(json_file)
 
     today = date.today()
@@ -24,5 +26,3 @@ def change_values_of_num():
                 data['date_and_time'][1]['num_to_use_file'] = num+1
             
             json.dump(data, fp = fpn, indent=2)
-
-change_values_of_num()
