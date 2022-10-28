@@ -49,22 +49,32 @@ def create_logo():
     width, height = new_im.size
     num_to_multiply = 1
 
-    for h in range(height):
-        try:
-            for row in range(width):
+    try:
+        for n in range(height):
+            for i in range(width):
                 pixelRGB = new_im.getpixel((row,h))
                 r,g,b = pixelRGB
                 brightness = (r+g+b)/3 
-                ascii_to_write = ascii_chars[floor(brightness/(len_ascii*num_to_multiply))]
 
+    except:
+        num_to_multiply = num_to_multiply+1
+        n = 0
+        i = 0
+
+    for h in range(height):
+        for row in range(width):
+            pixelRGB = new_im.getpixel((row,h))
+            
+            if "(" not in str(pixelRGB):
+                ascii_to_write = ascii_chars[floor(pixelRGB/(len_ascii*num_to_multiply))]    
                 file_of_ascii.write(ascii_to_write)
-            file_of_ascii.write("\n")
+                continue
 
-        except:
-            num_to_multiply = num_to_multiply+1
-            row = row - 1
-            file_of_ascii.write("\n")
+            r,g,b = pixelRGB
+            brightness = (r+g+b)/3 
+            ascii_to_write = ascii_chars[floor(brightness/(len_ascii*num_to_multiply))]
+            
+            file_of_ascii.write(ascii_to_write)
+        file_of_ascii.write("\n")
 
     file_of_ascii.close()
-
-create_logo()
