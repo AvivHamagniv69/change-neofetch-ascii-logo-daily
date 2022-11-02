@@ -22,5 +22,4 @@ neofetch='neofetch --ascii /home/path_to_directory_of_app/new_logo.txt'
 
 for now you also need to replace the ``` "file_0": "example.jpg" ``` to one of your images, the other ones will be added automaticlly.
 
-finally add ``` 0 0 * * * /usr/bin/python3 /path_to_folder_of_app/change_neofetch_logos/main.py size_of_ascii_logo```
-this will make my script run every day changing the logo
+finally add ``` any_minute_you_want any_hour_you_want * * * /usr/bin/python3 /path_to_folder_of_app/change_neofetch_logos/main.py size_of_ascii_logo``` to /etc/
