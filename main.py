@@ -14,39 +14,22 @@ def change_values_of_files():
     counter = int(data['date_and_time'][1]['num_to_use_file'])
     # we only dump data to json if we added a file
     if_updated = False
-   
+    counter_for_jpg = 0
+    amount_of_files = 0
+
+    for i in all_files_in_folder:
+        if ".jpg" in i:
+            amount_of_files = amount_of_files + 1
+
     for f in all_files_in_folder:
         if ".jpg" in f:
-            to_continue_loop = False
-            # the written file were currently checking
-            new_counter = 0
+            if counter == counter_for_jpg:
+                return f, amount_of_files
 
-            # this loop checks if the file is already written, if it is, we mark to_continue_loop as true and continue to the next file
-            if len(data['files'][0]) != 0:
-                for i in data['files'][0]:
-                    if f in data['files'][0]["file_"+str(new_counter)]:
-                        to_continue_loop = True
-                        break
-                    new_counter = new_counter + 1
-
-            if to_continue_loop == True:
-                continue
-
-            if_updated = True
-            append_to_json = {"file_"+str(counter):f}
-            counter = counter + 1
-            data['files'][0].update(append_to_json)
-
-    if if_updated == True:
-        with open('files.json', 'w') as fpn:
-            data['files'][0].update(append_to_json)
-            json.dump(data, fp = fpn, indent=2)
-        fpn.close()
-    # else:
-        # print("no files")
+            counter_for_jpg = counter_for_jpg + 1
 
     json_file.close()
 
-change_values_of_files()
-change_values_of_num.change_values_of_num()
-create_logo.create_logo()
+f, amount_of_files = change_values_of_files()
+change_values_of_num.change_values_of_num(amount_of_files)
+create_logo.create_logo(f)
