@@ -20,5 +20,9 @@ first copy this line into your .bashrc located in your home directory at the lin
 neofetch='neofetch --ascii /home/(path_to_directory_of_app)/new_logo.txt'
 ```
 
-finally add ``` (any_minute_you_want) (any_hour_you_want) * * * /usr/bin/python3 /(path_to_folder_of_app)/ change-neofetch-ascii-logo-daily
-/main.py size_of_ascii_logo``` to /etc/
+finally add 
+```
+(any_minute_you_want) (any_hour_you_want) * * * /usr/bin/python3 /(path_to_folder_of_app)/ change-neofetch-ascii-logo-daily
+/main.py size_of_ascii_logo
+``` 
+to your crontab (crontab -e)
