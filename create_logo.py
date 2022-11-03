@@ -5,8 +5,7 @@ import os
 import json
 import sys
 
-def create_logo():
-    
+def create_logo(file_to_use):
     # variable that is related to files/directories:
     current_directory = os.path.dirname(os.path.realpath(__file__))
 
@@ -15,7 +14,6 @@ def create_logo():
     data = json.load(json_file)
     num = data['date_and_time'][1]['num_to_use_file']
     element = 'file_'+str(num)
-    file_to_use = data['files'][0][element]
 
     # variables that are related to files/directories:
     file_path = current_directory+"/"+file_to_use
