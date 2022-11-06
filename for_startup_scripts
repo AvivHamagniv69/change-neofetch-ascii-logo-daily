@@ -1,0 +1,4 @@
+#! /usr/bin/bash
+# this script is only if you are going to want to use the gui for scripts to run at login and you cant give cmd arguments for the startup script
+
+/usr/bin/python3 ${PWD}/main.py 25
