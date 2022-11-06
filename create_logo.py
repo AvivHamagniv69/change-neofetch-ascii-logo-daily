@@ -45,7 +45,6 @@ def create_logo(file_to_use):
     num_to_multiply = 1
 
     # we pass over the image before we draw the ascii image because otherwise it has a chance of going out of range
-    #breakpoint()
     try:
         for n in range(height):
             for i in range(width):
@@ -59,7 +58,7 @@ def create_logo(file_to_use):
                 ascii_to_write = ascii_chars[floor(brightness/(len_ascii*num_to_multiply))]
 
     except:
-        num_to_multiply = num_to_multiply+1
+        num_to_multiply = num_to_multiply+0.5
         n = 0
         i = 0
 
@@ -75,8 +74,8 @@ def create_logo(file_to_use):
             r,g,b = pixelRGB
             brightness = (r+g+b)/3 
 
-            if floor(brightness/(len_ascii*num_to_multiply)) > len_ascii:
-                file_of_ascii.write(ascii_chars[len_ascii])
+            if (floor(brightness/(len_ascii*num_to_multiply))) >= len_ascii:
+                file_of_ascii.write(ascii_chars[len_ascii-1])
                 continue
                 
             ascii_to_write = ascii_chars[floor(brightness/(len_ascii*num_to_multiply))]
