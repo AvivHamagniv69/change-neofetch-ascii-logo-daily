@@ -24,4 +24,4 @@ also add
 ``` 
 to your crontab (crontab -e)
 
-finally add the bash script to your startup applications for when you log in, this will pretty much cover all cases
+finally give run permssions to the bash file (``` chmod +x for_startup_scripts ```) and add the bash script to your startup applications for when you log in, this will pretty much cover all cases
