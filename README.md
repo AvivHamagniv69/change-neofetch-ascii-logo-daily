@@ -12,16 +12,12 @@ python3 -m pip install --upgrade Pillow
 ```
 
 ## installation
-first copy this line into your .bashrc located in your home directory at the line before ``` unset rc ```:
-```
-neofetch='neofetch --ascii /home/(path_to_directory_of_app)/new_logo.txt'
-```
+copy these commands into your .bashrc:
 
+```
+neofetch='neofetch --ascii /home/[path_to_directory_of_app]/new_logo.txt'
+```
 also add
 ```
-(any_minute_you_want) (any_hour_you_want) * * * /usr/bin/python3 /(path_to_folder_of_app)/ change-neofetch-ascii-logo-daily
-/main.py size_of_ascii_logo
+/usr/bin/python3 /path_to_script/main.py [size_of_image]
 ``` 
-to your crontab (crontab -e)
-
-finally give run permssions to the bash file (``` chmod +x for_startup_scripts ```) and add the bash script to your startup applications for when you log in, this will pretty much cover all cases
